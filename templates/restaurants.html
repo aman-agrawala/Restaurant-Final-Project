@@ -14,13 +14,18 @@
 
 <ol>
 
-{% for restaurant in restaurantList %}
-<li><strong>{{restaurant.name}}</strong></li>
-<p><a href = "{{url_for('editRestaurant', restaurant_id = restaurant.id)}}">Edit this restaurant</a></p>
-<br>
-<a href = "{{url_for('deleteRestaurant', restaurant_id = restaurant.id)}}">Delete this restaurant</a>
-{% endfor %}
+{% if restaurantList|length > 0 %}
 
+    {% for restaurant in restaurantList %}
+    <li><a href = "{{url_for('showMenu', restaurant_id = restaurant.id)}}"><strong>{{restaurant.name}}</strong></a></li>
+    <p><a href = "{{url_for('editRestaurant', restaurant_id = restaurant.id)}}">Edit this restaurant</a></p>
+    <p><a href = "{{url_for('deleteRestaurant', restaurant_id = restaurant.id)}}">Delete this restaurant</a></p>
+    
+    {% endfor %}
+
+{% else %}
+    <h2> There are no restaurants </h2>
+{% endif %}
 </ol>
 
 </div>
