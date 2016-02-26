@@ -9,11 +9,13 @@
 	<form action = '#' method = 'POST'>
 
 	<p>Change Name:</p>
-	<input type = "text" placeholder = "{{Restaurant.name}}">
+	<input type = "text" placeholder = "{{restaurant.name}}">
 	<input type = 'submit' value = 'Change'>
 
-	<a href = "{{}}"
+	<a href = "{{url_for('showRestaurants')}}">Cancel</a>
 
+	</form>
+	
 </body>
 
 </html>
