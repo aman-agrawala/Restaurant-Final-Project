@@ -53,11 +53,15 @@ def deleteRestaurant(restaurant_id):
 @app.route('/restaurant/<int:restaurant_id>')
 @app.route('/restaurant/<int:restaurant_id>/menu')
 def showMenu(restaurant_id):
-	return 'This page is the menu for restaurant %s' %restaurant_id
+	menu = session.query(MenuItem).filter_by(restaurant_id = restaurant_id).all()
+	print menu[5].restaurant_id
+	#return 'This page is the menu for restaurant %s' %restaurant_id
+	return render_template('menu.html', menu = menu)
 
 @app.route('/restaurant/<int:restaurant_id>/new')
 def newMenuItem(restaurant_id):
-	return 'This page is for making a new menu item for restaurant %s' % restaurant_id
+	#return 'This page is for making a new menu item for restaurant %s' % restaurant_id
+	return render_template('newMenuItem.html',restaurant_id = restaurant_id)
 
 @app.route('/restaurant/<int:restaurant_id>/<int:menu_id>/edit')
 def editMenuItem(restaurant_id, menu_id):

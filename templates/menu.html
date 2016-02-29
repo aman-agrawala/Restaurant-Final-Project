@@ -1,0 +1,27 @@
+<html>
+
+<head>
+</head>
+
+<body>
+<h1><a href = "{{url_for('newMenuItem', restaurant_id = menu[1].restaurant_id)}}">Add a new menu item</a></h1>
+
+{% if menu|length > 0 %}
+
+<ol>
+	{% for item in menu %}
+	<li><p>{{item.name}}</p></li>
+	<p>{{item.description}}</p>
+	<p>{{item.price}}</p>
+	<p><a href = "{{url_for('editMenuItem',restaurant_id=item.restaurant_id, menu_id=item.id)}}">Edit this item</a></p>
+	<p><a href = "{{url_for('deleteMenuItem',restaurant_id=item.restaurant_id,menu_id=item.id)}}">Delete this item</a></p>
+	{% endfor %}
+</ol>
+
+{% else %}
+	<h2>There are no menu items</h2>
+{% endif %}
+
+</body>
+
+</html>
