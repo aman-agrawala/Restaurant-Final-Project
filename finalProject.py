@@ -65,11 +65,15 @@ def newMenuItem(restaurant_id):
 
 @app.route('/restaurant/<int:restaurant_id>/<int:menu_id>/edit')
 def editMenuItem(restaurant_id, menu_id):
-	return 'This page is for editing menu item %s' % menu_id
+	#return 'This page is for editing menu item %s' % menu_id
+	item = session.query(MenuItem).filter_by(id = menu_id).one()
+	return render_template('editMenuItem.html',item = item)
 
 @app.route('/restaurant/<int:restaurant_id>/<int:menu_id>/delete')
 def deleteMenuItem(restaurant_id,menu_id):
-	return 'This page is for deleting menu item %s' % menu_id
+	#return 'This page is for deleting menu item %s' % menu_id
+	item = session.query(MenuItem).filter_by(id = menu_id).one()
+	return render_template('deleteMenuItem.html',item = item)
 
 if __name__ == '__main__':
 	app.debug = True
