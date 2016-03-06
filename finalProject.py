@@ -137,11 +137,17 @@ def editMenuItem(restaurant_id, menu_id):
     else:
         return render_template('editMenuItem.html', item = item)
 
-@app.route('/restaurant/<int:restaurant_id>/<int:menu_id>/delete')
+@app.route('/restaurant/<int:restaurant_id>/<int:menu_id>/delete', methods = ['GET', "POST"])
 def deleteMenuItem(restaurant_id,menu_id):
     #return 'This page is for deleting menu item %s' % menu_id
     item = session.query(MenuItem).filter_by(id = menu_id).one()
-    return render_template('deleteMenuItem.html',item = item)
+    if request.method == 'POST':
+        session.delete(item)
+        session.commit()
+        flash('Menu item deleted!')
+        return redirect(url_for('showMenu', restaurant_id=restaurant_id))
+    else:
+        return render_template('deleteMenuItem.html',item = item)
 
 if __name__ == '__main__':
     app.secret_key = 'key' #used to create sessions for users
