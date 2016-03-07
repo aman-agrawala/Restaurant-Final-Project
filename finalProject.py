@@ -24,8 +24,21 @@ items = [ {'name':'Cheese Pizza', 'description':'made with fresh cheese', 'price
 item =  {'name':'Cheese Pizza','description':'made with fresh cheese','price':'$5.99','course' :'Entree'}
 
 
+#JSON Requests
+@app.route('/restaurants/JSON')
+def showRestaurantsJSON():
+    restaurants = session.query(Restaurant).all()
+    return jsonify(Restaurants = [restaurant.serialize for restaurant in restaurants])
 
+@app.route('/restaurant/<int:restaurant_id>/menu/JSON')
+def showMenuJSON(restaurant_id):
+    menu = session.query(MenuItem).filter_by(restaurant_id = restaurant_id).all()
+    return jsonify(MenuItems = [item.serialize for item in menu])
 
+@app.route('/restaurant/<int:restaurant_id>/menu/<int:menu_id>/JSON')
+def itemJSON(restaurant_id,menu_id):
+    item = session.query(MenuItem).filter_by(id = menu_id).one()
+    return jsonify(Item = [item.serialize])
 
 #Show all restaurants
 @app.route('/restaurants')
