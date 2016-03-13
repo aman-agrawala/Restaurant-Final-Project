@@ -37,7 +37,7 @@
 				// Use jquery to create an AJAX call that passes the one time code google gave the cilent onto the server.
 				#.ajax({
 					type:'POST', // specify as a post method
-					url: '/gconnect?state={{STATE}}', // Passing the state token as an argument to verify against a cross site reference forgery attack
+					url: '/gconnect?state={{STATE}}', // Passing the state token as an argument to verify against a cross site reference forgery attack. Everything after the ? is a query string. So our function routing /gconnect will look for a variable called state and assign it the value STATE
 					processData: false, // setting processData to false shows that we do not want jQuery to process the response into a string
 					contentType: 'applicaton/octet-stream; charset=utf-8', // application/octet-stream indicates we are sending an arbitrary binary stream of data, charset=utf-8 indicates that it is formatted using a universal character set called Unicode
 					data: authResult['code'], //specify data that we are going to send along to the server which will be the one time use code
