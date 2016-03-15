@@ -7,6 +7,7 @@ In order to get this code up and running, it is expected that you are familiar w
 https://www.python.org/ for more information on installing and setting up python by yourself. Please see http://docs.sqlalchemy.org/en/rel_1_0/core/tutorial.html for setting up SQLAlchemy. Please see http://flask.pocoo.org/docs/0.10/quickstart/ for quickly setting up Flask. 
 Furthermore, it is advised to install vagrant on your own machine to get all additional programs quickly intsalled. Please see this link for more details on this process: https://www.udacity.com/wiki/ud197/install-vagrant.
 
+## Instructions
 
 1. Open up terminal/Git Bash and cd to you vagrant folder.
 
