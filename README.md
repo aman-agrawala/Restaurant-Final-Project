@@ -1,5 +1,5 @@
 # Restaurant-Final-Project
-The following code will allow you to create a local website for listing restaurants and their respective menu items. 
+The following code will allow you to create a local webserver for listing restaurants and their respective menu items. 
 Eventually this will be expanded to include improved styling and user authentication/authorization via Google and Facebook.
 
 
