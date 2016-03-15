@@ -1,6 +1,6 @@
 # Restaurant-Final-Project
 The following code will allow you to create a local website for listing restaurants and their respective menu items. 
-Eventually this will be expanded to include better styling and user authentication/authorization via Google and Facebook.
+Eventually this will be expanded to include improved styling and user authentication/authorization via Google and Facebook.
 
 
 In order to get this code up and running, it is expected that you are familiar with Python, SQLAlchemy, and Flask. Please see
@@ -18,4 +18,8 @@ Furthermore, it is advised to install vagrant on your own machine to get all add
 
 5. The server should be running locally at `localhost:8000` and you can view it yourself by typing `localhost:8000` into your browser url bar.
 
-You can now edit, delete, or create new restaurants and their menu items. If you would like to select a different port for your website, then open up the finalProject.py file and scroll all the way to the last line. By changing the value of port in `app.run(host='0.0.0.0', port=8000)` you can select any port you prefer. Feel free to add your own styling and launch your website publically!
+You can now edit, delete, or create new restaurants and their menu items. If you would like to select a different port for your website, then open up the finalProject.py file and scroll all the way to the last line. By changing the value of port in `app.run(host='0.0.0.0', port=8000)` you can select any port you prefer. 
+
+To add your own styling, open up the static folder and change the styles.css file as desired. Remember to include the styling link in your header if you add any new templates or change the styling.css name.
+
+Feel free to add your own styling and launch your website publically! 
